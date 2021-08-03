@@ -1251,6 +1251,24 @@ Resources:
           - !Ref 'AmazonMQBrokerPassword'
       Description: SSM Param for broker user and password
  
+  MQBrokerUserPasswordSecret:
+    Type: 'AWS::SecretsManager::Secret'
+    Properties:
+      Name: MQBrokerUserPasswordSecret
+      Description: "Secret for accessing a queue on the ActiveMQ broker."
+      #SecretString: '{"username":"workshopUser","password":"workshopUser"}'
+      SecretString: !Join
+        - ''
+        - - '{'
+          - '"username"'
+          - ':'
+          - !Ref 'AmazonMQBrokerUser'
+          - ','
+          - '"password"'
+          - ':'
+          - !Ref 'AmazonMQBrokerPassword'
+          - '}' 
+ 
   C9MQClient:
     Type: AWS::Cloud9::EnvironmentEC2
     Properties:
