@@ -1256,7 +1256,6 @@ Resources:
     Properties:
       Name: MQBrokerUserPasswordSecret
       Description: "Secret for accessing a queue on the ActiveMQ broker."
-      #SecretString: '{"username":"workshopUser","password":"workshopUser"}'
       SecretString: !Join
         - ''
         - - '{'
@@ -1282,7 +1281,7 @@ Resources:
           - MQClient
       Repositories:
         - PathComponent: /amazon-mq-workshop
-          RepositoryUrl: https://github.com/aws-samples/amazon-mq-workshop.git
+          RepositoryUrl: https://github.com/nikhilpenmetsa/amazon-mq-workshop.git
       SubnetId: !Ref 'PublicSubnet1'
       OwnerArn: !Ref "AWS::NoValue"
 
